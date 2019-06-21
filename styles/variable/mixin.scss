@@ -1,0 +1,50 @@
+$norPrefix: ('webkit', 'moz');
+@mixin prefixAll($declarations, $prefixes: ()) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes { 
+        #{'-' + $prefix + '-' + $property}: $value; 
+    }
+    #{$property}: $value;
+  }
+}
+
+@mixin border-radius($radius){
+    @include prefix(
+        border-radius, 
+        $radius, 
+        $norPrefix
+    );
+}
+@mixin box-sizing($box){
+    @include prefix(
+        box-sizing, 
+        $box, 
+        $norPrefix
+    );
+}
+@mixin appearance($apper){
+    @include prefix(
+        appearance, 
+        $apper, 
+        $norPrefix
+    );
+}
+@mixin transition($transition){
+    @include prefix(
+        transition, 
+        $transition, 
+        $norPrefix
+    );
+}
+@mixin transform($transform){
+    @include prefix(
+        transform, 
+        $transform, 
+        $norPrefix
+    );
+}
+
+
+
+
+
